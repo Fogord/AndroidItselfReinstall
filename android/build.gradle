@@ -1,0 +1,104 @@
+apply plugin: 'com.android.application'
+
+//def keystorePropertiesFile = rootProject.file("key.properties")
+//def keystoreProperties = new Properties()
+//keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.0'
+    }
+}
+
+repositories {
+    google()
+    jcenter()
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha01'
+
+    implementation 'androidx.work:work-runtime:2.1.0-beta01'                               //$rootProject.workVersion"
+    implementation 'androidx.concurrent:concurrent-futures:1.0.0-beta01'                   //$rootProject.futuresVersion"
+    implementation 'androidx.concurrent:concurrent-listenablefuture:1.0.0-beta01'          //$rootProject.futuresVersion"
+    implementation 'androidx.concurrent:concurrent-listenablefuture-callback:1.0.0-beta01' //$rootProject.futuresVersion"
+}
+
+android {
+    /*******************************************************
+     * The following variables:
+     * - androidBuildToolsVersion,
+     * - androidCompileSdkVersion
+     * - qt5AndroidDir - holds the path to qt android files
+     *                   needed to build any Qt application
+     *                   on Android.
+     *
+     * are defined in gradle.properties file. This file is
+     * updated by QtCreator and androiddeployqt tools.
+     * Changing them manually might break the compilation!
+     *******************************************************/
+
+    compileSdkVersion androidCompileSdkVersion.toInteger()
+
+    buildToolsVersion androidBuildToolsVersion
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = [qt5AndroidDir + '/src', 'src', 'java']
+            aidl.srcDirs = [qt5AndroidDir + '/src', 'src', 'aidl']
+            res.srcDirs = [qt5AndroidDir + '/res', 'res']
+            resources.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+       }
+    }
+
+    applicationVariants.all { variant ->
+       variant.outputs.all {
+           outputFileName = "../" + outputFileName
+       }
+    }
+
+
+    //signingConfigs {
+    //    release {
+    //        keyAlias'release'
+    //        keyPassword 'qwerty'
+    //        storeFile file('release.keystore')
+    //        storePassword 'qwerty'
+    //    }
+    //    debug {
+    //        keyAlias'release'
+    //        keyPassword 'qwerty'
+    //        storeFile file('release.keystore')
+    //        storePassword 'qwerty'
+    //    }
+    //}
+    //buildTypes {
+    //    release {
+    //        debuggable false   // значение true препятствовало установке приложения из apk-файла
+    //        minifyEnabled false
+    //        signingConfig signingConfigs.release
+    //        ext.alwaysUpdateBuildId = true
+    //    }
+    //    debug {
+    //        minifyEnabled false
+    //        signingConfig signingConfigs.debug
+    //        ext.alwaysUpdateBuildId = true
+    //    }
+    //}
+
+    lintOptions {
+        abortOnError false
+    }
+}
