@@ -63,11 +63,11 @@ android {
        }
     }
 
-    applicationVariants.all { variant ->
-       variant.outputs.all {
-           outputFileName = "../" + outputFileName
-       }
-    }
+    //applicationVariants.all { variant ->
+    //   variant.outputs.all {
+    //       outputFileName = "../" + outputFileName
+    //   }
+    //}
 
 
     //signingConfigs {
@@ -84,19 +84,19 @@ android {
     //        storePassword 'qwerty'
     //    }
     //}
-    //buildTypes {
-    //    release {
-    //        debuggable false   // значение true препятствовало установке приложения из apk-файла
-    //        minifyEnabled false
-    //        signingConfig signingConfigs.release
-    //        ext.alwaysUpdateBuildId = true
-    //    }
-    //    debug {
-    //        minifyEnabled false
-    //        signingConfig signingConfigs.debug
-    //        ext.alwaysUpdateBuildId = true
-    //    }
-    //}
+    buildTypes {
+        release {
+            debuggable false   // значение true препятствовало установке приложения из apk-файла
+            minifyEnabled false
+            //signingConfig signingConfigs.release
+            ext.alwaysUpdateBuildId = true
+        }
+        debug {
+            minifyEnabled false
+            //signingConfig signingConfigs.debug
+            ext.alwaysUpdateBuildId = true
+        }
+    }
 
     lintOptions {
         abortOnError false

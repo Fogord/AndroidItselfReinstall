@@ -1,4 +1,4 @@
-package org.qtproject;
+package org.qtproject.Updater;
 
 import android.app.Application;
 

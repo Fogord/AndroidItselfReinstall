@@ -19,8 +19,8 @@ SOURCES += \
 RESOURCES += qml.qrc
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
-OTHER_FILES += android/src/org/qtproject/AndroidIntentLauncher.java \
-               android/src/org/qtproject/App.java
+OTHER_FILES += android/src/org/qtproject/Updater/AndroidIntentLauncher.java \
+               android/src/org/qtproject/Updater/App.java
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =

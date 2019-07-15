@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<manifest package="org.qtproject" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="0.0.0.1" android:versionCode="0" android:installLocation="auto">
+<manifest package="org.qtproject.Updater" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="0.0.0.1" android:versionCode="0" android:installLocation="auto">
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28"/>
 
     <!-- The following comment will be replaced upon deployment with default permissions based on the dependencies of the application.
@@ -101,4 +101,9 @@
 
     </application>
 
+<uses-permission android:name="android.permission.BIND_DEVICE_ADMIN"/>
+    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.ACCOUNT_MANAGER"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
 </manifest>

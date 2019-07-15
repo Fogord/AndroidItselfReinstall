@@ -16,6 +16,7 @@ Window {
     }
 
     Button {
+        id: b1
         anchors.top: centerText.bottom
         anchors.topMargin: 10
         anchors.horizontalCenter: centerText.horizontalCenter
@@ -23,7 +24,33 @@ Window {
         text: "Press to update"
 
         onClicked: {
-            Brige.update()
+            Brige.update();
+        }
+    }
+
+    Button {
+        id: b2
+        anchors.top: b1.bottom
+        anchors.topMargin: 10
+        anchors.horizontalCenter: centerText.horizontalCenter
+
+        text: "QProcess"
+
+        onClicked: {
+            Brige.qprocess();
+        }
+    }
+
+    Button {
+        id: b3
+        anchors.top: b2.bottom
+        anchors.topMargin: 10
+        anchors.horizontalCenter: centerText.horizontalCenter
+
+        text: "run App"
+
+        onClicked: {
+            Brige.runApp();
         }
     }
 }
