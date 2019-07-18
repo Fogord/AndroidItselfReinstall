@@ -43,7 +43,15 @@ DISTFILES += \
     android/gradle/wrapper/gradle-wrapper.properties \
     android/gradlew \
     android/gradlew.bat \
-    android/key.jks \
     android/res/values/libs.xml \
+    android/src/org/qtproject/Updater/AndroidIntentLauncher.java \
+    android/src/org/qtproject/Updater/App.java \
     android/res/xml/provider_paths.xml
 
+contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
+    ANDROID_PACKAGE_SOURCE_DIR = \
+        $$PWD/android
+}
+
+SUBDIRS += \
+    android/proguard-rules.pro
